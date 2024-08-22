@@ -1,7 +1,6 @@
 import Cart from "./Cart"
 import Drink from "./Drink"
 import Food from "./Food"
-import Footer from "./Footer"
 
 const Menu = () => {
   return (
@@ -11,9 +10,8 @@ const Menu = () => {
         <Food />
         <h4 className="font-bold text-2xl">Bebidas</h4>
         <Drink />
-        <Cart />
     </section>
-        <Footer />
+        <Cart isCartOpen={false} />
     </>
 )
 }

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "home": "url('./src/assets/restaurant.jpg')"
+        "home": "url('/src/assets/restaurant.jpg')"
       }
     },
   },

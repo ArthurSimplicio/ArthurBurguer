@@ -5,7 +5,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 const Item = ({name, description, price, image}: ItemType) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 hover:scale-105 hover:-rotate-1 duration-150">
         <img className="w-28 h-28 rounded-lg" src={image} alt="" />
         <div>
             <h3 className="font-semibold text-lg">{name}</h3>

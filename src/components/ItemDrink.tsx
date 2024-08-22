@@ -4,7 +4,7 @@ import { ItemType } from "../utils/itemType"
 const ItemDrink = ({name, description, price, image}: ItemType) => {
     return (
       <div className="flex items-center justify-center gap-5 px-7">
-          <img className="w-8 h-28 rounded-lg" src={image} alt="" />
+          <img className="w-10 h-auto rounded-lg" src={image} alt="" />
           <div className="w-full">
               <h3 className="font-semibold text-lg">{name}</h3>
               <p className="w-full text-sm md:text-base">{description}</p>

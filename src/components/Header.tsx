@@ -1,8 +1,10 @@
 import BannerBurguer from '../assets/banner.jpg'
 
 const hours = new Date()
+console.log(hours.getDay()
+);
 
-const isOpen = hours.getHours() >= 13 && hours.getHours() <= 21 ? <p className='text-white bg-green-600 p-2 rounded-md'>Seg à Sex - 13h às 21h</p> : <p className='text-white bg-red-600 p-2 rounded-md'>Seg à Sex - 13h às 21h</p>
+const isOpen = (hours.getHours() >= 13 && hours.getHours() <= 21 && hours.getDay() !== 0 && hours.getDay() !== 6) ? <p className='text-white bg-green-600 p-2 rounded-md'>Seg à Sex - 13h às 21h</p> : <p className='text-white bg-red-600 p-2 rounded-md'>Seg à Sex - 13h às 21h</p>
 
 const Header = () => {
   return (

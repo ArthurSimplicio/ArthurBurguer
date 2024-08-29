@@ -9,7 +9,7 @@ const ItemDrink = ({name, description, price, image}: ItemType) => {
               <h3 className="font-semibold text-lg">{name}</h3>
               <p className="w-full text-sm md:text-base">{description}</p>
               <div className="w-full flex justify-between items-center mt-3">
-                  <h4 className="font-bold">R$ {price}</h4>
+                  <h4 className="font-bold">R$ {price.toFixed(2)}</h4>
                   <div className="bg-gray-950 px-4 py-1 cursor-pointer rounded-md">
                       <FaCartPlus className="text-white text-lg"/>
                   </div>

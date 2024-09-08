@@ -12,8 +12,15 @@ const Menu = () => {
         <Drink />
     </section>
         <Cart isCartOpen={false} />
+
+
+
+
+
+        
     </>
 )
 }
 
 export default Menu
+

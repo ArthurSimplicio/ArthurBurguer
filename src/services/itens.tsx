@@ -8,6 +8,7 @@ import Burguer6 from "../assets/hamburguer6.jpg"
 import Burguer7 from "../assets/hamburguer7.jpg"
 import Burguer8 from "../assets/hamburguer8.jpg"
 
+
 export const itens: Array<ItemType> = [
     { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal, maionese e molho especial' },
     { name: 'Oásis no Deserto', image: Burguer2, price: 15.90, description: 'Com carne suculenta e molho barbecue, uma experiência saborosa e reconfortante.' },

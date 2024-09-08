@@ -1,20 +1,14 @@
+import { useContext } from "react"
 import { FaCartPlus } from "react-icons/fa"
-import { ItemType } from "../utils/itemType"
-import Burguer from "../assets/hamburguer1.jpg"
+import { CartContext } from "../contexts/CartContext"
 
-const itens: Array<ItemType> = [
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-    { name: 'Bom Burguer', image: Burguer, price: 15.90, description: 'Pão de Trigo quentinho com carne artesanal com maionese e molho especial' },
-]
+
 const Item = () => {
+    const {itens} = useContext(CartContext)
+    console.log(itens);
+    
     return (
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ul className="overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5">
             {itens.map((e, index) => {
                 return (
                     <li key={index} className="flex gap-2 hover:scale-105 hover:-rotate-1 duration-150">

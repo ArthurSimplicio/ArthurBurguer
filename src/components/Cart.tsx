@@ -7,13 +7,28 @@ import Empty from '../assets/vazio.png'
 
 const Cart = ({ isCartOpen = false }) => {
   const { cart, remove, total } = useContext(CartContext)
-  console.log(total);
-  console.log(cart);
-
-
   const [isOpen, setIsOpen] = useState(isCartOpen)
+  const [address, setAddress] = useState<string | undefined>('')
   const handleIsOpen = () => {
     setIsOpen(value => !value)
+  }
+  const hasItem = cart.length > 0
+  const hasAddress = address !== ''
+
+  function changedAddress(e: React.ChangeEvent<HTMLInputElement>) {
+    setAddress(e.target.value)
+  }
+  function buy(){
+    if(!hasAddress) return;
+
+    const cartItens = cart.map((e) => {
+      return(
+        `${e.name} Preço: ${e.price} | `
+      )
+    }).join("")
+    const message = encodeURIComponent(cartItens)
+    const phone = "85981724898"
+    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${address} Total: R$${total.toFixed(2)}`, '_blank')
   }
   return (
     <>
@@ -39,11 +54,11 @@ const Cart = ({ isCartOpen = false }) => {
                 })}
                 <p className="w-full flex justify-between  font-bold">Total: <span>R$ {total.toFixed(2)}</span></p>
                 <p className="font-bold mt-4">Endereço de entrega:</p>
-                <input className="border-2 my-1 p-1 rounded" type="text" placeholder="Digite o seu endreço" />
-                <p className="text-red-500 hidden">Digite seu Endereço Completo!</p>
+                <input className="border-2 my-1 p-1 rounded" type="text" name="address" placeholder="Digite o seu endreço" value={address} onChange={changedAddress} />
+                <p className={!hasAddress ? "text-red-500" : "hidden" }>Digite seu Endereço Completo!</p>
                 <div className="w-full flex justify-between items-center mt-5">
                   <button onClick={handleIsOpen}>Cancelar</button>
-                  <button className="bg-green-500 text-white px-4 py-1 rounded">Fazer Pedido</button>
+                  <button onClick={buy} className="bg-green-500 text-white px-4 py-1 rounded">Fazer Pedido</button>
                 </div>
               </div>
             </div>
@@ -63,11 +78,16 @@ const Cart = ({ isCartOpen = false }) => {
         </div>
 
       </div>
-      <footer className="w-full fixed bottom-0 z-40 flex justify-center items-center bg-green-500 px-0 py-2 rounded-lg">
-        <button onClick={handleIsOpen} className="flex items-center text-white font-bold text-lg">
+      <footer onClick={handleIsOpen} className="w-full fixed bottom-0 z-40 flex justify-center items-center bg-green-500 px-0 py-2 rounded-lg cursor-pointer">
+        <div className={hasItem ? 'flex' : 'hidden'}>
+          <div className="bg-red-500 text-yellow-200 font-semibold px-1 rounded-full">
+            {cart.length}
+          </div>
+        </div>
+        <div  className="flex items-center text-white font-bold text-lg">
           <FaShoppingBasket />
           Ver Pedido
-        </button>
+        </div>
       </footer>
     </>
   )
